@@ -1,0 +1,132 @@
+import type { TeamConfig } from "@/types"
+
+export const teams: Record<string, TeamConfig> = {
+  marketing: {
+    title: "Marketing & Sales",
+    emoji: "📣",
+    agents: [
+      { id: "dazzle", name: "Dazzle", emoji: "✨", role: "Content & Auto-Reply", model: "Sonnet 4.6" },
+      { id: "closer", name: "Closer", emoji: "🤝", role: "Sales & Proposals", model: "Opus 4.6" },
+      { id: "bounty", name: "Bounty", emoji: "🎯", role: "Leads & Analytics", model: "M2.7" },
+      { id: "secretary", name: "Secretary", emoji: "📑", role: "Admin & Invoicing", model: "M2.7" },
+    ],
+    commands: [
+      { name: "/campaign", prompt: "วางแผน campaign สำหรับสัปดาห์นี้ สินค้า UPS และ Battery ของ Enersys Thailand เน้น Facebook + LINE สรุปเป็น action plan", agent: "invoker" },
+      { name: "/lead-report", prompt: "สรุป lead report วันนี้ จำนวนข้อความที่เข้ามา แยกตาม channel สรุปเป็นตาราง", agent: "invoker" },
+      { name: "/content-week", prompt: "วางแผน content calendar สำหรับสัปดาห์หน้า 5 โพสต์ เน้น UPS Battery Solar สำหรับ Facebook Page", agent: "invoker" },
+      { name: "/social-fire", prompt: "เขียนโพสต์ Facebook แบบ viral สำหรับ Enersys Thailand เรื่อง UPS สำหรับธุรกิจ SME พร้อม hashtag", agent: "invoker" },
+    ],
+  },
+  ba: {
+    title: "BA, SA & PM",
+    emoji: "📋",
+    agents: [
+      { id: "analyst", name: "Analyst", emoji: "📊", role: "Requirements & Proposals", model: "Opus 4.6" },
+      { id: "architect", name: "Architect", emoji: "🏗️", role: "System Design & Tech Spec", model: "Opus 4.6" },
+      { id: "planner", name: "Planner", emoji: "📅", role: "Timeline & Resource Mgmt", model: "Opus 4.6" },
+      { id: "estimator", name: "Estimator", emoji: "💰", role: "Budget & Manday Costing", model: "Opus 4.6" },
+      { id: "scribe", name: "Scribe", emoji: "📝", role: "Docs, MoM & Reports", model: "Opus 4.6" },
+    ],
+    commands: [
+      { name: "/scope", prompt: "วิเคราะห์ scope ของโปรเจค แยก functional requirements, non-functional requirements, constraints และ out of scope", agent: "analyst" },
+      { name: "/risk", prompt: "วิเคราะห์ความเสี่ยงของโปรเจค แยกตาม probability, impact, mitigation plan เป็นตาราง", agent: "analyst" },
+      { name: "/wbs", prompt: "สร้าง Work Breakdown Structure แยก phase, task, subtask พร้อม manday estimate", agent: "planner" },
+      { name: "/mom", prompt: "เขียน Minutes of Meeting template สำหรับ kickoff meeting ของโปรเจค", agent: "scribe" },
+      { name: "/tech-spec", prompt: "ออกแบบ system architecture และ technical specification รวม tech stack, database design, API design", agent: "architect" },
+      { name: "/estimate", prompt: "ประเมิน manday และ budget แยกตาม role, phase พร้อม rate card และ contingency", agent: "estimator" },
+    ],
+  },
+  dev: {
+    title: "Development",
+    emoji: "💻",
+    agents: [
+      { id: "frontend", name: "Frontend", emoji: "🎨", role: "UI/UX & React/Vue", model: "Opus 4.6" },
+      { id: "backend", name: "Backend", emoji: "⚙️", role: "API & Server Logic", model: "Opus 4.6" },
+      { id: "dba", name: "DBA", emoji: "🗄️", role: "Database & Query Tuning", model: "Opus 4.6" },
+      { id: "devops", name: "DevOps", emoji: "🚀", role: "CI/CD & Infrastructure", model: "Opus 4.6" },
+      { id: "tester", name: "Tester", emoji: "🧪", role: "QA & Test Automation", model: "Opus 4.6" },
+    ],
+    commands: [
+      { name: "/api-design", prompt: "ออกแบบ REST API endpoints สำหรับโปรเจค พร้อม request/response schema, HTTP methods, status codes", agent: "backend" },
+      { name: "/db-schema", prompt: "ออกแบบ database schema พร้อม ER diagram, indexes, constraints, migration script", agent: "dba" },
+      { name: "/component", prompt: "สร้าง React component structure พร้อม props, state management, responsive design", agent: "frontend" },
+      { name: "/ci-cd", prompt: "ออกแบบ CI/CD pipeline พร้อม build, test, deploy stages สำหรับ Docker + K8s", agent: "devops" },
+      { name: "/test-plan", prompt: "สร้าง test plan พร้อม test cases, coverage strategy, automation framework", agent: "tester" },
+      { name: "/code-review", prompt: "review code ให้ ตรวจ security, performance, best practices, OWASP top 10", agent: "backend" },
+    ],
+  },
+  qa: {
+    title: "QA",
+    emoji: "🧪",
+    agents: [
+      { id: "qa-lead", name: "QA Lead", emoji: "🛡️", role: "Quality Governance", model: "Opus 4.6" },
+      { id: "automation", name: "Automation", emoji: "🤖", role: "E2E & API Test Scripts", model: "Opus 4.6" },
+      { id: "security", name: "Security", emoji: "🔒", role: "Pentest & OWASP", model: "Opus 4.6" },
+      { id: "performance", name: "Performance", emoji: "⚡", role: "Load & Stress Testing", model: "Opus 4.6" },
+      { id: "uat", name: "UAT", emoji: "✅", role: "User Acceptance & Regression", model: "Opus 4.6" },
+    ],
+    commands: [
+      { name: "/test-strategy", prompt: "สร้าง test strategy document ครอบคลุม scope, approach, environment, entry/exit criteria", agent: "qa-lead" },
+      { name: "/e2e-test", prompt: "เขียน E2E test script ด้วย Playwright สำหรับ user login, CRUD operations", agent: "automation" },
+      { name: "/security-scan", prompt: "ทำ security assessment ตรวจ OWASP Top 10 สรุปเป็นรายงาน", agent: "security" },
+      { name: "/load-test", prompt: "สร้าง load test script ด้วย k6 ทดสอบ 100-1000 concurrent users", agent: "performance" },
+      { name: "/uat-cases", prompt: "สร้าง UAT test cases จาก user stories ครอบคลุม happy path, edge cases", agent: "uat" },
+    ],
+  },
+  ops: {
+    title: "Operations",
+    emoji: "🔧",
+    agents: [
+      { id: "sre", name: "SRE", emoji: "🔥", role: "Reliability & Incidents", model: "Opus 4.6" },
+      { id: "infra", name: "Infra", emoji: "🌐", role: "Cloud & Network", model: "Opus 4.6" },
+      { id: "deployer", name: "Deployer", emoji: "📦", role: "Release & Deployment", model: "Opus 4.6" },
+      { id: "support", name: "Support", emoji: "🎧", role: "L1/L2 Helpdesk", model: "Opus 4.6" },
+      { id: "monitor", name: "Monitor", emoji: "📡", role: "Observability & Alerts", model: "Opus 4.6" },
+    ],
+    commands: [
+      { name: "/incident", prompt: "สร้าง incident response playbook สำหรับ production outage", agent: "sre" },
+      { name: "/terraform", prompt: "เขียน Terraform config สำหรับ VPC, EC2/ECS, RDS, S3 บน AWS", agent: "infra" },
+      { name: "/deploy", prompt: "สร้าง deployment pipeline: Docker, K8s, blue-green, health check, rollback", agent: "deployer" },
+      { name: "/monitoring", prompt: "ออกแบบ monitoring stack: Prometheus, Grafana, alert rules", agent: "monitor" },
+      { name: "/runbook", prompt: "เขียน runbook สำหรับ common operations: restart, scale, backup, SSL renewal", agent: "sre" },
+      { name: "/troubleshoot", prompt: "วิเคราะห์ปัญหา service ช้า/ล่ม ตรวจ logs, metrics สรุป root cause", agent: "support" },
+    ],
+  },
+  exec: {
+    title: "Executive",
+    emoji: "👔",
+    agents: [
+      { id: "ceo", name: "CEO", emoji: "👔", role: "Strategy & Decisions", model: "Opus 4.6" },
+      { id: "cfo", name: "CFO", emoji: "💼", role: "Finance & P&L", model: "Opus 4.6" },
+      { id: "product", name: "Product", emoji: "🎯", role: "Roadmap & PRD", model: "Opus 4.6" },
+    ],
+    commands: [
+      { name: "/briefing", prompt: "สรุป morning briefing วันนี้: สถานะโปรเจกต์, ค่าใช้จ่าย AI, งานที่ต้องตัดสินใจ", agent: "ceo" },
+      { name: "/pl-report", prompt: "สรุป P&L เดือนนี้: รายรับ, ค่าใช้จ่าย, กำไรขั้นต้น, AI costs", agent: "cfo" },
+      { name: "/roadmap", prompt: "สร้าง product roadmap Q2 2026 สำหรับ Enersys AI Boardroom", agent: "product" },
+      { name: "/decision", prompt: "วิเคราะห์ข้อดีข้อเสีย สำหรับการตัดสินใจ พร้อม recommendation", agent: "ceo" },
+    ],
+  },
+  biz: {
+    title: "Biz Ops",
+    emoji: "📑",
+    agents: [
+      { id: "accountant", name: "Accountant", emoji: "🧮", role: "Invoicing & Bookkeeping", model: "Opus 4.6" },
+      { id: "billing", name: "Billing", emoji: "💳", role: "Payments & Collections", model: "Opus 4.6" },
+      { id: "recruiter", name: "Recruiter", emoji: "🔍", role: "Hiring & Screening", model: "Opus 4.6" },
+      { id: "hr-admin", name: "HR Admin", emoji: "📋", role: "Contracts & Payroll", model: "Opus 4.6" },
+      { id: "legal", name: "Legal", emoji: "⚖️", role: "Contracts & PDPA", model: "Opus 4.6" },
+      { id: "account-mgr", name: "Account Manager", emoji: "🤝", role: "Client Health & Renewal", model: "Opus 4.6" },
+      { id: "retention", name: "Retention", emoji: "🔄", role: "Churn & Win-back", model: "Opus 4.6" },
+    ],
+    commands: [
+      { name: "/invoice", prompt: "สร้าง invoice template สำหรับ Enersys Thailand พร้อม VAT 7% และ WHT 3%", agent: "accountant" },
+      { name: "/contract", prompt: "สร้าง service agreement สำหรับโปรเจกต์ IT", agent: "legal" },
+      { name: "/job-post", prompt: "เขียน job description สำหรับ Full-stack Developer ที่ Enersys Thailand", agent: "recruiter" },
+      { name: "/nda", prompt: "สร้าง NDA ภาษาไทย สำหรับ client engagement", agent: "legal" },
+      { name: "/pdpa-check", prompt: "ตรวจสอบ PDPA compliance สำหรับระบบที่เก็บข้อมูลลูกค้า", agent: "legal" },
+      { name: "/client-health", prompt: "ประเมิน client health score สำหรับลูกค้าทั้งหมด", agent: "account-mgr" },
+      { name: "/payroll", prompt: "คำนวณ payroll สำหรับเดือนนี้ พร้อม social security, WHT", agent: "hr-admin" },
+    ],
+  },
+}
